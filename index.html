@@ -1,1 +1,20 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        function pxToRem(){
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            html.style.fontSize = windowWidth / 3.75+ 'px';
+        }
+        pxToRem();
+        window.addEventListener('resize',pxToRem)
+    </script>
+</head>
+<body >
+    <a href="01/1.html">01</a>
+</body>
+</html>
