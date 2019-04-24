@@ -17,12 +17,13 @@
     </script>
 </head>
 <style>
-    *{margin: 0;padding: 0;box-sizing: border-box}
+
     .top{width: 90%;height: 0.4rem;line-height: 0.4rem;text-align: center;border: 4px solid yellow;font-size: 0.2rem;margin: 0 auto}
     .title{font-size: 0.16rem;line-height: 0.4rem;margin: 0.1rem 0;text-align: center;color: green}
     .box{width: 90%;margin: 0.1rem auto;/*padding-right: 15%;*/}
     #main{width: 100%;}
     .tip{font-size: 0.16rem;width: 90%;margin: 0 auto}
+    .action{width: 100%;padding: 0 5%;}
 </style>
 <body>
     <div class="top">仿真实验</div>
@@ -31,14 +32,33 @@
     <div class="box">
         <div id="main" style="width:100%; height: 80vw"></div>
     </div>
-    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">帮助</a>
+    <div class="action">
+        <a href="javascript:;" class="help weui-btn weui-btn_mini weui-btn_primary">帮助</a>
+    </div>
 
 </body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/weui.min.js"></script>
 <script type="text/javascript" src="../js/echarts.min.js"></script>
 <script type="text/javascript">
+    $(function () {
+        $('.help').click(function () {
+            weui.dialog({
+                title: '帮助',
+                content: '<a  href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">帮助</a>',
+                className: 'help',
+                buttons: [ {
+                    label: '确定',
+                    type: 'primary',
+                    onClick: function () { }
+                }]
+            });
+        });
+
+    });
+
     // 基于准备好的dom，初始化echarts实例
-    var normalFontSize = 20
+    var normalFontSize = 18
     var myChart = echarts.init(document.getElementById('main'));
 
     // 指定图表的配置项和数据
