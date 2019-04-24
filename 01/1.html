@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link href="../css/weui.min.css " rel="stylesheet" type="text/css">
     <script>
         function pxToRem(){
             var html = document.documentElement;
@@ -18,7 +18,7 @@
     *{margin: 0;padding: 0;box-sizing: border-box}
     .top{width: 90%;height: 0.4rem;line-height: 0.4rem;text-align: center;border: 4px solid yellow;font-size: 0.2rem;margin: 0 auto}
     .title{font-size: 0.16rem;line-height: 0.4rem;margin: 0.1rem 0;text-align: center;color: green}
-    .box{width: 90%;margin: 0.1rem auto;padding-right: 20%;}
+    .box{width: 90%;margin: 0.1rem auto;/*padding-right: 15%;*/}
     #main{width: 100%;}
     .tip{font-size: 0.16rem;width: 90%;margin: 0 auto}
 </style>
@@ -27,15 +27,16 @@
     <p class="title">实验1 一阶系统的单位脉冲响应</p>
     <p class="tip">设一阶系统的传递函数为 T为时间常数</p>
     <div class="box">
-
-        <div id="main" style="width:100%; height: 400px;"></div>
+        <div id="main" style="width:100%; height: 500px;"></div>
     </div>
-
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">帮助</a>
 
 </body>
+<script type="text/javascript" src="../js/weui.min.js"></script>
 <script type="text/javascript" src="../js/echarts.min.js"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
+    var normalFontSize = 28
     var myChart = echarts.init(document.getElementById('main'));
 
     // 指定图表的配置项和数据
@@ -46,13 +47,30 @@
         tooltip: {},
         xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            name:'t/s',
+            nameTextStyle:{
+                fontSize:normalFontSize
+            },
+            boundaryGap: false,
+            data: ['0','0.1', '0.2', '0.3', '0.4'],
+            axisLabel:{
+                fontSize:normalFontSize
+            }
         },
         yAxis: {
-            type: 'value'
+            name:'w(t)',
+            nameTextStyle:{
+                fontSize:normalFontSize
+            },
+            type: 'category',
+            boundaryGap: false,
+            data: ['0','2.5', '5', '7.5', '10'],
+            axisLabel:{
+                fontSize:normalFontSize
+            }
         },
         series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            data: [1, 2, 1, 2,1],
             type: 'line',
             smooth: true
         }]
