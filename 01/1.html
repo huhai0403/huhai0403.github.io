@@ -23,7 +23,7 @@
     .box{width: 90%;margin: 0.1rem auto;/*padding-right: 15%;*/}
     #main{width: 100%;}
     .tip{font-size: 0.16rem;width: 90%;margin: 0 auto}
-    .action{width: 100%;padding: 0 5%;}
+    .action{width: 100%;padding: 0 5%;box-sizing: border-box}
 </style>
 <body>
     <div class="top">仿真实验</div>
@@ -33,7 +33,24 @@
         <div id="main" style="width:100%; height: 80vw"></div>
     </div>
     <div class="action">
-        <a href="javascript:;" class="help weui-btn weui-btn_mini weui-btn_primary">帮助</a>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">T(秒)</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input tNumber" value="0.1" type="number" placeholder="请输入T值">
+                </div>
+                <div class="weui-cell__ft">
+                    <button class="tSubmit weui-btn weui-btn_mini weui-btn_primary">提交</button>
+                </div>
+            </div>
+        </div>
+        <div >
+            <a href="javascript:;" class="help weui-btn weui-btn_mini weui-btn_primary">帮助</a>
+            <a href="javascript:;" class="caBtn weui-btn weui-btn_mini weui-btn_primary">仿真</a>
+            <a href="javascript:;" class="clearBtn weui-btn weui-btn_mini weui-btn_primary">清除</a>
+        </div>
     </div>
 
 </body>
@@ -42,6 +59,52 @@
 <script type="text/javascript" src="../js/echarts.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        var TNumber = 0.1;
+        var xAxisArr = [0,0.1,0.2,0.3,0.4];
+        var yAxisArr = [0,2.5,5,7.5,10];
+        var seriesArr = [1,2,3,4,5];
+        var normalFontSize = 18
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: ''
+            },
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                name:'t/s',
+                nameTextStyle:{
+                    fontSize:normalFontSize
+                },
+                boundaryGap: false,
+                data: xAxisArr,
+                axisLabel:{
+                    fontSize:normalFontSize
+                }
+            },
+            yAxis: {
+                name:'w(t)',
+                nameTextStyle:{
+                    fontSize:normalFontSize
+                },
+                type: 'category',
+                boundaryGap: false,
+                data: yAxisArr,
+                axisLabel:{
+                    fontSize:normalFontSize
+                }
+            },
+            series: [{
+                data: seriesArr,
+                type: 'line',
+                smooth: true
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
         $('.help').click(function () {
             weui.dialog({
                 title: '帮助',
@@ -54,51 +117,40 @@
                 }]
             });
         });
+        $('.tSubmit').click(function () {
+            console.log($('.tNumber').val());
+            var tData =  Number($('.tNumber').val())
+            if(tData<0){
+                weui.alert('输入值不合法');
+            }else {
+                TNumber = tData
+            }
+        });
+        $('.caBtn').click(function () {
+            var tData = Number($('.tNumber').val())
+            if(tData<0){
+                weui.alert('输入值不合法');
+            }else {
+                TNumber = tData
+                xAxisArr = [0,TNumber,TNumber*2,TNumber*3,TNumber*4];
+                option.xAxis.data = xAxisArr;
+                for(var i=0;i<xAxisArr.length;i++){
+                    seriesArr[i] = (1/TNumber)*(Math.pow(Math.E,-(xAxisArr[i]/TNumber)));
+                    console.log(seriesArr)
+                }
+                console.log(option)
+                myChart.setOption(option);
+            }
+
+        })
+        $('.clearBtn').click(function () {
+            TNumber = 0;
+            console.log($('.tNumber').val(0))
+        });
+// 基于准备好的dom，初始化echarts实例
 
     });
 
-    // 基于准备好的dom，初始化echarts实例
-    var normalFontSize = 18
-    var myChart = echarts.init(document.getElementById('main'));
 
-    // 指定图表的配置项和数据
-    var option = {
-        title: {
-            text: ''
-        },
-        tooltip: {},
-        xAxis: {
-            type: 'category',
-            name:'t/s',
-            nameTextStyle:{
-                fontSize:normalFontSize
-            },
-            boundaryGap: false,
-            data: ['0','0.1', '0.2', '0.3', '0.4'],
-            axisLabel:{
-                fontSize:normalFontSize
-            }
-        },
-        yAxis: {
-            name:'w(t)',
-            nameTextStyle:{
-                fontSize:normalFontSize
-            },
-            type: 'category',
-            boundaryGap: false,
-            data: ['0','2.5', '5', '7.5', '10'],
-            axisLabel:{
-                fontSize:normalFontSize
-            }
-        },
-        series: [{
-            data: [1, 2, 1, 2,1],
-            type: 'line',
-            smooth: true
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
 </script>
 </html>
