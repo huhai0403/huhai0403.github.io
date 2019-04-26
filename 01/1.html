@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>仿真实验</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link href="../css/weui.min.css " rel="stylesheet" type="text/css">
     <link href="../css/base.css " rel="stylesheet" type="text/css">
@@ -24,18 +24,23 @@
     #main{width: 100%;}
     .tip{font-size: 0.16rem;width: 90%;margin: 0 auto}
     .tip img{width: 1.5rem;}
-    .action{width: 100%;padding: 0 5%;box-sizing: border-box}
+    .tip p{line-height: 0.3rem}
+    .tip span{height: 0.02rem;width:0.3rem;display: inline-block;vertical-align: super;margin-left: 10px;}
+    .action{width: 100%;padding: 0 5%;box-sizing: border-box;}
     .btnBox {display: flex;align-items: center;height: 0.5rem}
     .btnBox div{width: 33.3%;text-align: center}
 </style>
 <body>
     <div class="top">仿真实验</div>
     <p class="title">实验1 一阶系统的单位脉冲响应</p>
-    <p class="tip">
+    <div class="tip">
         设一阶系统的传递函数为<br>
         <img src="imgs/1.jpg"><br>
         T为时间常数
-    </p>
+        <div class="lineBox">
+            <p>T=0.1<span style="background: yellow"></span></p>
+        </div>
+    </div>
     <div class="box">
         <div id="main" style="width:100%; height: 80vw"></div>
     </div>
@@ -67,13 +72,15 @@
 <script type="text/javascript">
     $(function () {
         var TNumber = 0.1;
+        var tArr = [0.1]
         var xAxisArr = [0,0.1,0.2,0.3,0.4];
         var yAxisArr = [0,2.5,5,7.5,10];
         var seriesArr = [];
         var yAxisType = 'category'
         var normalFontSize = 18
         var myChart = echarts.init(document.getElementById('main'));
-
+        var colorArr = ['yellow','green','blue','deeppink','yellowgreen'];
+        var needClear = false;
         // 指定图表的配置项和数据
         var option = {
             title: {
@@ -115,7 +122,7 @@
                 }
             },
             series: [{
-                data: seriesArr,
+                data: [],
                 type: 'line',
                 smooth: true,
                 lineStyle:{
@@ -142,35 +149,92 @@
                 }]
             });
         });
+        /*提交*/
         $('.tSubmit').click(function () {
+            if(needClear){
+                weui.dialog({
+                    content: '请先点击清除按钮',
+                    buttons: [ {
+                        label: '确定',
+                        type: 'primary',
+                        onClick: function () { }
+                    }]
+                });
+
+                return false
+            }
             console.log($('.tNumber').val());
-            var tData =  Number($('.tNumber').val()).toFixed(1)
+            if(tArr.length>=5){
+                return false
+            }
+            var tData =  Number($('.tNumber').val())
             if(tData<=0){
-                weui.alert('输入值不合法');
+                weui.dialog({
+                    content: '输入值不合法',
+                    buttons: [ {
+                        label: '确定',
+                        type: 'primary',
+                        onClick: function () { }
+                    }]
+                });
             }else {
-                TNumber = tData
+                $('.lineBox').append(' <p>T='+tData+'<span style="background: '+colorArr[tArr.length]+'"></span></p>')
+                TNumber = tData;
+                tArr = tArr.concat([TNumber])
             }
         });
+        /*仿真*/
         $('.caBtn').click(function () {
-            var tData = Number($('.tNumber').val()).toFixed(1)
-            if(tData<=0){
-                weui.alert('输入值不合法');
+            if(needClear){
+                weui.dialog({
+                    content: '请先点击清除按钮',
+                    buttons: [ {
+                        label: '确定',
+                        type: 'primary',
+                        onClick: function () { }
+                    }]
+                });
+                return false
+            }
+            if(tArr.length<1){
+                weui.dialog({
+                    content: '请先提交T值',
+                    buttons: [ {
+                        label: '确定',
+                        type: 'primary',
+                        onClick: function () { }
+                    }]
+                });
             }else {
-                TNumber = tData
-                xAxisArr = [0,Number(TNumber).toFixed(1),Number(TNumber*2).toFixed(1),Number(TNumber*3).toFixed(1),Number(TNumber*4).toFixed(1)];
-                option.xAxis.data = xAxisArr;
-                for(var i=0;i<xAxisArr.length;i++){
-                    seriesArr[i] = (1/TNumber)*(Math.pow(Math.E,-(xAxisArr[i]/TNumber))).toFixed(1);
-                    console.log(seriesArr)
+                console.log(tArr);
+                needClear = true;
+                for(var i=0;i<tArr.length;i++){
+                    xAxisArr = [0,Number(tArr[i]).toFixed(4),Number(tArr[i]*2).toFixed(4),Number(tArr[i]*3).toFixed(4),Number(tArr[i]*4).toFixed(4)];
+                    option.xAxis.data = xAxisArr;
+                    var arrT = [];
+                    for(var j=0;j<xAxisArr.length;j++){
+                        arrT[j] = (1/TNumber)*(Math.pow(Math.E,-(xAxisArr[j]/TNumber))).toFixed(4);
+//                        console.log(seriesArr)
+                    }
+                    option.series = option.series.concat([
+                        {data: arrT,
+                            type: 'line',
+                            smooth: true,
+                            lineStyle: {
+                                color: colorArr[i]
+                            }
+                        }
+                    ])
+                    option.yAxis.type = 'value'
+                    option.yAxis.type = 'value'
+                    console.log(option);
+                    myChart.setOption(option);
                 }
-                option.yAxis.type = 'value'
-                option.yAxis.type = 'value'
-                console.log(option)
-                myChart.setOption(option);
             }
 
         })
         $('.clearBtn').click(function () {
+            needClear = false
             TNumber = 0;
             xAxisArr = [0,0.1,0.2,0.3,0.4];
             yAxisArr = [0,2.5,5,7.5,10];
@@ -187,6 +251,8 @@
                     color:'yellow'
                 }
             }];
+            $('.lineBox').empty();
+            tArr = [];
             console.log(option);
             myChart.clear();
             console.log(option);
