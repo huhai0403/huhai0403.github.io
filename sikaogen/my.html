@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>斯考根e课堂</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="css/weui.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.weui.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <script>
+        function pxToRem() {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            html.style.fontSize = windowWidth / 3.75 + 'px';
+        }
+
+        pxToRem();
+        window.addEventListener('resize', pxToRem)
+    </script>
+    <style>
+        .user-box{width: 100%;height: 1.2rem;background:linear-gradient(-62deg,rgba(117,177,252,1),rgba(189,235,250,1));padding-left: 0.32rem;padding-top:0.27rem }
+        .user-box img{width: 0.52rem;height: 0.52rem;border-radius: 50%;float: left;margin-right: 0.15rem}
+        .user-box span{font-size: 0.18rem;line-height: 0.52rem;color: #000;float: left}
+        .user-block{position: relative;top: -0.25rem;font-size: 0.15rem;width: 3.4rem;margin: 0 auto;background: #fff;border-radius: 0.08rem;margin-bottom: 0.32rem}
+        .user-block .weui-cell{width: 90%;margin: 0 auto;border-bottom: 1px solid #ddd;padding: 0.18rem 0}
+        .user-block .weui-cell__bd p{font-size: 0.15rem;color: #000}
+        .user-block .weui-cell_access .weui-cell__ft:after{border-color: #333}
+        .course-list{padding: 0.2rem}
+        .course-item{margin-bottom: 0;height: auto}
+        .course-item .price{height: 0.13rem}
+        .course-item .time{font-size: 0.12rem;color: #E8A263;margin-top: 0.18rem}
+        .none-content{padding: 0.1rem 0 0.2rem;text-align: center}
+        .none-content img{width: 0.7rem}
+        .none-content p{font-size: 0.12rem;color: #999;}
+        .weui-dialog__hd{padding: 0}
+    </style>
+</head>
+<body style="background: #F5F5F5">
+    <div class="user-box">
+        <div  style="display: none" class="in-login">
+            <img src="http://download.xiushewang.com/FnUmRiIZcLEyikIDAYGxmA_rWWAb"/>
+            <span>王丽英</span>
+        </div>
+        <div  class="un-login">
+            <img src="img/icon_HeadPortrait@2x.png"/>
+            <span>未登录</span>
+        </div>
+    </div>
+    <div class="user-block collect-box">
+        <a class="weui-cell weui-cell_access" href="myCollect.html">
+            <div class="weui-cell__bd">
+                <p>课程收藏</p>
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+        <!--有内容-->
+        <div  class="course-list">
+            <a href="courseDetail.html" class="course-item">
+                <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+                <div class="course-info">
+                    <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                    <p class="price"></p>
+                    <p class="num"><img src="img/icon_number@2x.png">1231</p>
+                </div>
+                <!--<img class="free" src="img/icon_sign_free@2x.png"/>-->
+            </a>
+        </div>
+        <!--无内容-->
+        <div style="display: none" class="none-content">
+            <img src="img/pic_collect@2x.png"/>
+            <p>你还未收藏课程~</p>
+        </div>
+    </div>
+    <div class="user-block collect-box">
+        <a class="weui-cell weui-cell_access" href="myOrder.html">
+            <div class="weui-cell__bd">
+                <p>课程订单</p>
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+        <!--有内容-->
+        <div class="course-list">
+            <a href="courseDetail.html" class="course-item">
+                <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+                <div class="course-info">
+                    <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                    <p class="price"></p>
+                    <p class="num"><img src="img/icon_number@2x.png">1231</p>
+                </div>
+                <p class="time">学习期限：2019.03.20-2019.06.20</p>
+                <!--<img class="free" src="img/icon_sign_free@2x.png"/>-->
+            </a>
+        </div>
+        <!--无内容-->
+        <div style="display: none" class="none-content">
+            <img src="img/pic_order@2x.png"/>
+            <p>你还没有订单~</p>
+        </div>
+    </div>
+    <div class="tab weui-tabbar">
+        <a href="index.html" class="weui-tabbar__item ">
+            <img src="./img/btn_home_nor@2x.png" alt="" class="weui-tabbar__icon">
+            <img src="./img/btn_home_s@2x.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">首页</p>
+        </a>
+        <a href="courseList.html" class="weui-tabbar__item ">
+            <img src="./img/btn_course_nor@2x.png" alt="" class="weui-tabbar__icon">
+            <img src="./img/btn_course_s@2x.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">课程</p>
+        </a>
+        <a href="my.html" class="weui-tabbar__item active">
+            <img src="./img/btn_me_nor@2x.png" alt="" class="weui-tabbar__icon">
+            <img src="./img/btn_me_s@2x.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.weui.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(function () {
+        $('.in-login').click(function () {
+           window.location.href = 'userInfo.html'
+        });
+        $('.un-login').click(function () {
+            window.location.href = 'login.html'
+        });
+    })
+
+</script>
+</html>

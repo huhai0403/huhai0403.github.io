@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>斯考根e课堂</title>
+    <title>课程订单</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link href="css/weui.css" rel="stylesheet" type="text/css">
     <link href="css/jquery.weui.css" rel="stylesheet" type="text/css">
@@ -18,99 +18,82 @@
         window.addEventListener('resize', pxToRem)
     </script>
     <style>
-        .search-wrap{width: 3rem;height: 0.3rem;margin: 0.1rem auto;position: relative}
-        .search-wrap input{border:1px solid rgba(221,221,221,1); display: inherit;width: 100%;height: 100%; box-shadow:0 0 10px 0 rgba(230,242,255,1);  border-radius:0.15rem;padding: 0.02rem 0.1rem;box-sizing: border-box}
-        .search-wrap img{position: absolute;width: 0.2rem;height: 0.2rem;right: 0.1rem;top: 0.05rem}
+        .course-list{margin-top: 0.16rem;padding: 0 0.12rem 0.6rem}
+        .course-item{position: relative;background: #fff;padding: 0.16rem 0.08rem;height: 1.26rem;margin: 0 auto 0.12rem}
+        .course-item .cover{width: 1rem;height: 0.7rem;top: 0.16rem;left: 0.08rem}
+        .course-item .num span{float: right}
+        .course-info{padding-left: 1.18rem}
+        .course-item .time{font-size: 0.12rem;color: #E8A263;margin-top: 0.18rem}
     </style>
 </head>
-<body class="courseList loadMore">
-    <div class="search-wrap">
-        <input type="text">
-        <img src="img/icon_search@2x.png">
-    </div>
+<body class="courseList loadMore" style="background: #F5F5F5">
     <div class="course-list">
-        <div class="course-item">
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
             </div>
-            <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
-            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
-            <div class="course-info">
-                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
-                <p class="price">￥0.00</p>
-                <p class="num"><img src="img/icon_number@2x.png">1231</p>
-            </div>
-            <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-    </div>
-    <div class="tab weui-tabbar">
-        <a href="index.html" class="weui-tabbar__item ">
-            <img src="./img/btn_home_nor@2x.png" alt="" class="weui-tabbar__icon">
-            <img src="./img/btn_home_s@2x.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">首页</p>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
         </a>
-        <a href="courseList.html" class="weui-tabbar__item active">
-            <img src="./img/btn_course_nor@2x.png" alt="" class="weui-tabbar__icon">
-            <img src="./img/btn_course_s@2x.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">课程</p>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
+        </a>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
+        </a>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
+        </a>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
+        </a>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
+        </a>
+        <a href="courseDetail.html" class="course-item">
+            <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
+            <div class="course-info">
+                <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
+                <p class="price"></p>
+                <p class="num">￥1231<span>2019-03-20 12:23购买</span></p>
+            </div>
+            <p class="time">学习期限：2019.03.20-2019.06.20</p>
         </a>
 
-        <a href="my.html" class="weui-tabbar__item">
-            <img src="./img/btn_me_nor@2x.png" alt="" class="weui-tabbar__icon">
-            <img src="./img/btn_me_s@2x.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">我的</p>
-        </a>
     </div>
+
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.weui.js"></script>
@@ -123,18 +106,27 @@
             if(loading) return;
             loading = true;
             setTimeout(function() {
-                $(".course-list").append("<div class=\"course-item\">\n" +
+                $(".course-list").append("        <div class=\"course-item\">\n" +
                     "            <img class=\"cover\" src=\"http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_\"/>\n" +
                     "            <div class=\"course-info\">\n" +
                     "                <p class=\"name\">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>\n" +
-                    "                <p class=\"price\">￥0.00</p>\n" +
-                    "                <p class=\"num\"><img src=\"img/icon_number@2x.png\">1231</p>\n" +
+                    "                <p class=\"price\"></p>\n" +
+                    "                <p class=\"num\">￥1231<span>2019-03-20 12:23购买</span></p>\n" +
                     "            </div>\n" +
-                    "            <div class=\"try\"><p class=\"sanjiao_right\"></p>试看</div>\n" +
-                    "        </div>");
+                    "            <p class=\"time\">学习期限：2019.03.20-2019.06.20</p>\n" +
+                    "        </div>\n");
                 loading = false;
             }, 500);   //模拟延迟
         });
+        /*删除*/
+        $('.course-list').on('click','.delete-btn',function () {
+            var _this = $(this).parents('.course-item')
+            $.confirm("自定义的消息内容", function() {
+                _this.remove()
+            }, function() {
+                console.log('已取消')
+            });
+        })
     })
 </script>
 </html>

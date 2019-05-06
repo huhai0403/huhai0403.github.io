@@ -13,8 +13,9 @@ $(function () {
         window.location.href = 'searchList.html'
     });
    /*课程列表选择分类*/
-   $('.courseList .top-nav li,.courseList .mid-nav li').click(function () {
-       $(this).siblings().removeClass('active');
-       $(this).addClass('active');
-   });
+    $('.courseList .top-nav ,.courseList .mid-nav').on('click','li',function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+
 });

@@ -5,6 +5,7 @@
     <title>斯考根e课堂</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link href="css/weui.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.weui.css" rel="stylesheet" type="text/css">
     <link href="css/base.css" rel="stylesheet" type="text/css">
     <script>
         function pxToRem() {
@@ -31,7 +32,7 @@
         .mid-nav li.active{border: 1px solid #3063E5;background: #3063E5;color: #fff}
     </style>
 </head>
-<body class="courseList">
+<body class="courseList loadMore">
     <div class="course-nav">
         <div class="top-nav">
             <ul>
@@ -56,7 +57,7 @@
     </div>
 
     <div class="course-list">
-        <div class="course-item">
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -64,8 +65,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -73,8 +74,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -82,8 +83,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -91,8 +92,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -100,8 +101,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -109,8 +110,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <div class="try"><p class="sanjiao_right"></p>试看</div>
-        </div>
-        <div class="course-item">
+        </a>
+        <a href="courseDetail.html" class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -118,20 +119,22 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <img class="free" src="img/icon_sign_free@2x.png"/>
-        </div>
+        </a>
+
     </div>
     <div class="tab weui-tabbar">
-        <a href="javascript:;" class="weui-tabbar__item ">
+        <a href="index.html" class="weui-tabbar__item ">
             <img src="./img/btn_home_nor@2x.png" alt="" class="weui-tabbar__icon">
             <img src="./img/btn_home_s@2x.png" alt="" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">首页</p>
         </a>
-        <a href="javascript:;" class="weui-tabbar__item active">
+        <a href="courseList.html" class="weui-tabbar__item active">
             <img src="./img/btn_course_nor@2x.png" alt="" class="weui-tabbar__icon">
             <img src="./img/btn_course_s@2x.png" alt="" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">课程</p>
         </a>
-        <a href="javascript:;" class="weui-tabbar__item">
+
+        <a href="my.html" class="weui-tabbar__item">
             <img src="./img/btn_me_nor@2x.png" alt="" class="weui-tabbar__icon">
             <img src="./img/btn_me_s@2x.png" alt="" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">我的</p>
@@ -139,5 +142,28 @@
     </div>
 </body>
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery.weui.js"></script>
 <script src="js/main.js"></script>
+<script>
+    $(function () {
+        /*加载更多*/
+        var loading = false;
+        $('.loadMore').infinite().on("infinite", function() {
+            if(loading) return;
+            loading = true;
+            setTimeout(function() {
+                $(".course-list").append("<div class=\"course-item\">\n" +
+                    "            <img class=\"cover\" src=\"http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_\"/>\n" +
+                    "            <div class=\"course-info\">\n" +
+                    "                <p class=\"name\">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>\n" +
+                    "                <p class=\"price\">￥0.00</p>\n" +
+                    "                <p class=\"num\"><img src=\"img/icon_number@2x.png\">1231</p>\n" +
+                    "            </div>\n" +
+                    "            <div class=\"try\"><p class=\"sanjiao_right\"></p>试看</div>\n" +
+                    "        </div>");
+                loading = false;
+            }, 500);   //模拟延迟
+        });
+    })
+</script>
 </html>

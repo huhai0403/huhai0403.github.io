@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程详情</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="css/weui.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.weui.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <script>
+        function pxToRem() {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            html.style.fontSize = windowWidth / 3.75 + 'px';
+        }
+
+        pxToRem();
+        window.addEventListener('resize', pxToRem)
+    </script>
+    <style>
+        .cover-box{width: 100%;}
+        .cover-box .cover{display: block;width: 100%}
+        .cover-box .video{display: none;width: 100%;}
+        .course-watcher{color: #bbb;font-size: 0.1rem;line-height: 0.12rem;padding-left: 0.2rem}
+        .course-watcher img{height: 0.12rem;margin-right: 0.1rem;vertical-align: bottom}
+        .course-title{font-size:0.16rem;font-weight:400;color:rgba(0,0,0,1);line-height:0.28rem;width: 100%;padding: 0.1rem 0.2rem}
+        .course-time{font-size:0.13rem;font-weight:400; color:rgba(102,102,102,1); line-height:0.22rem;padding-left: 0.2rem;margin-top: 0.16rem}
+        .mid-line{width: 100%;height: 0.05rem;background: rgba(245,245,245,1);margin-top: 0.3rem}
+        .tab-box{height: 0.48rem;width: 100%;text-align: center;border-bottom: 1px solid #dddddd}
+        .tab-box p{float: left;width: 50%;font-size: 0.14rem;color: #666666;line-height: 0.48rem;position: relative}
+        .tab-box p span{width: 0.4rem;height: 0.02rem;position: absolute;bottom: 0.02rem;left: 50%;margin-left: -0.2rem;background: #1F48E1;display: none}
+        .tab-box p.active{color: #1F48E1}
+        .tab-box p.active span{display: block}
+        .course-menu-item{margin: 0 0.18rem;padding: 0.18rem 0;border-bottom:1px solid #DDD }
+        .course-menu-item .try{float: left;width: 0.44rem;height: 0.18rem;line-height: 0.16rem;margin-right: 0.1rem;border: 1px solid #1F48E1;border-radius: 0.09rem;font-size: 0.1rem;color: #1F48E1;text-align: center}
+        .course-menu-item .name{float: left;line-height: 0.18rem;font-size: 0.15rem;color: #333;max-width: 2.45rem}
+        .course-menu-item .time{font-size: 0.11rem;line-height: 0.18rem;float: right;color: #999}
+        .course-detail{width: 100%;padding: 0.18rem 0.2rem;color: #333;line-height: 0.22rem;font-size: 0.13rem;display: none}
+        .pay-box{padding: 0.11rem 0.26rem;width:100%;height: 0.52rem;position: fixed;bottom: 0; left:0;border-top: 1px solid #DDD;z-index: 99;background: #fff}
+        .pay-box .collect{float: left}
+        .pay-box .collect img{display: none;width: 0.2rem;height: 0.18rem}
+        .pay-box .collect img:first-child{display: block}
+        .pay-box .collect.active img:nth-child(2){display: block}
+        .pay-box .collect.active img:first-child{display: none}
+        /*.pay-box .collect.active img:nth-child(2){display: none}*/
+        .pay-box .collect.active p{color: #FF5A3A}
+        .pay-box .collect p{color: #666;font-size:0.12rem;}
+        .pay-box .pay-btn{float: right;width: 2.8rem;height: 0.3rem;text-align: center;background:rgba(255,90,58,1);
+            box-shadow:0 6px 12px 0 rgba(255,198,190,1);border-radius:0.15rem;color: #fff;font-size: 0.1rem;line-height: 0.3rem}
+        .pay-box .pay-btn span{font-size: 0.15rem;}
+    </style>
+</head>
+<body class="courseDetail">
+    <div class="cover-box">
+        <img class="cover" src="http://download.xiushewang.com/FnUmRiIZcLEyikIDAYGxmA_rWWAb">
+        <video class="video" controls="controls" src="http://www.w3school.com.cn/i/movie.ogg"></video>
+    </div>
+    <p class="course-title">液货船货物操作模拟器课程（油船、化学品船、液化气船）</p>
+    <p class="course-watcher"><img src="img/icon_number@2x.png">1231</p>
+    <p class="course-time">课程限期：90天</p>
+    <p class="mid-line"></p>
+    <div class="tab-box">
+        <p class="active">
+            课程目录
+            <span></span>
+        </p>
+        <p>
+            课程简介
+            <span></span>
+        </p>
+    </div>
+    <div class="course-menu">
+        <div class="course-menu-item clearfix">
+            <p class="try">试看</p>
+            <p class="name">远洋船长航海纪实</p>
+            <p class="time">25:21</p>
+        </div>
+        <div class="course-menu-item clearfix">
+            <p class="try">试看</p>
+            <p class="name">远洋船长航海2323偶遇海军军舰标题标题标题标题标题标题
+                标题标题4234纪实</p>
+            <p class="time">25:21</p>
+        </div>
+        <div class="course-menu-item clearfix">
+
+            <p class="name">远洋船长航海纪实</p>
+            <p class="time">25:21</p>
+        </div>
+        <div class="course-menu-item clearfix">
+            <p class="name">远洋船长航海2323偶遇海军军舰标题标题标题标题标题标题
+                标题标题4234纪实</p>
+            <p class="time">25:21</p>
+        </div>
+    </div>
+    <div class="course-detail">
+        <p>船东课程是培训中心专为高级船员提供的培训课程。可以根据船东的要求开班，是一种专为船东量身定制的课程。我们采用小班教学，以保证针对性。中心是Sweidish Club授权的海事资源管理（MRM）培训机构。
+
+            如果您对下列船东课程以外的课程感兴趣，请直接联系我
+            们。我们很乐意按照您的要求开设相应课程。</p>
+    </div>
+    <p style="height: 0.7rem"></p>
+    <div class="pay-box">
+        <div class="collect active">
+            <img src="img/btn_collect_nor@2x.png"/>
+            <img src="img/btn_collect_s@2x.png"/>
+            <p>收藏</p>
+        </div>
+        <a href="javascript:;" class="pay-btn">
+            <span>购买 : 99</span>
+            元（只支持微信付款）
+        </a>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.weui.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(function () {
+        $('.tab-box p').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            if($(this).index()){
+                $('.course-menu').hide();
+                $('.course-detail').show();
+            }else {
+                $('.course-menu').show();
+                $('.course-detail').hide();
+            }
+            console.log($(this).index())
+        });
+        /*收藏*/
+        $('.collect').click(function () {
+           $(this).toggleClass('active')
+        });
+        /*播放*/
+        $('.course-menu').on('click','.course-menu-item',function () {
+            $('.cover-box .cover').hide();
+            $('.cover-box .video').show();
+
+        })
+    })
+</script>
+</html>

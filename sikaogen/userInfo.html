@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑个人信息</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="css/weui.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.weui.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <script>
+        function pxToRem() {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            html.style.fontSize = windowWidth / 3.75 + 'px';
+        }
+
+        pxToRem();
+        window.addEventListener('resize', pxToRem)
+    </script>
+    <style>
+        .weui-cells{margin-top: -1px;}
+        .weui-cells:after{border-bottom: 2px solid #eee}
+        .weui-cell .weui-cell__ft{height: 0.32rem;font-size: 0.14rem;line-height: 0.32rem}
+        .head-box .weui-cell__ft{height: 0.52rem;position: relative;overflow: hidden}
+        .head-box .weui-cell__ft input{position: absolute;width: 100%;height: 100%;left: 0;top: 0;opacity: 0}
+        .head-box .weui-cell__ft img{width: 0.52rem;height: 0.52rem}
+        .weui-cell__bd p{font-size: 0.14rem;color: #333;width: auto;margin-right: 0.16rem}
+        .weui-input{font-size: 0.14rem}
+        .tip{font-size: 0.12rem;color: #999;padding-left: 0.18rem;line-height: 0.36rem}
+        .sure{width: 3.5rem;height: 0.5rem;background: #fff;text-align: center;line-height: 0.5rem;color: #1F48E1;border-radius: 0.08rem;margin: 0.1rem auto;display: block;font-size: 0.15rem}
+        .edit-name,.edit-phone{background:rgba(238,238,238,1); border-radius:12px;}
+    </style>
+</head>
+<body style="background: #f5f5f5">
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell head-box">
+        <div class="weui-cell__bd">
+            <p>头像</p>
+        </div>
+        <div class="weui-cell__ft ">
+            <input type="file" accept="image/*">
+            <img src="img/icon_HeadPortrait@2x.png">
+        </div>
+    </div>
+</div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell name-box">
+        <div class="weui-cell__bd">
+            <p>姓名</p>
+        </div>
+        <div class="weui-cell__ft">王丽英</div>
+    </div>
+</div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell phone-box">
+        <div class="weui-cell__bd">
+            <p>手机号</p>
+        </div>
+        <div class="weui-cell__ft">150****0977</div>
+    </div>
+</div>
+<div class="weui-cells weui-cells_form">
+    <a class="weui-cell weui-cell_access" href="editPassword.html">
+        <div class="weui-cell__bd">
+            <p>设置登陆密码</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+</div>
+
+
+<p class="tip">密码必须是6-18个英文字母、数字或符号（除空格）</p>
+<a class="sure" href="javascript:;">保存</a>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.weui.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(function () {
+        $('.name-box').click(function () {
+            $.confirm({
+                title: '标题',
+                text: '<div class="weui-cell edit-name">' +
+                '                <div class="weui-cell__bd">' +
+                '                    <input class="weui-input" value="王丽英" type="text" placeholder="请输入姓名">' +
+                '                </div>' +
+                '            </div>',
+                onOK: function () {
+                    alert($('.edit-name input').val())
+                },
+                onCancel: function () {
+                }
+            });
+        });
+        $('.phone-box').click(function () {
+            $.confirm({
+                title: '标题',
+                text: '<div class="weui-cell edit-phone">' +
+                '                <div class="weui-cell__bd">' +
+                '                    <input class="weui-input" value="15012340977" type="text" placeholder="请输入手机号">' +
+                '                </div>' +
+                '            </div>',
+                onOK: function () {
+                    alert($('.edit-phone input').val())
+                },
+                onCancel: function () {
+                }
+            });
+        });
+        $('.sure').click(function () {
+            $.alert('保存成功')
+        })
+    });
+</script>
+</html>
