@@ -5,12 +5,13 @@
     <title>斯考根e课堂</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link href="css/weui.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css">
     <link href="css/base.css" rel="stylesheet" type="text/css">
     <script>
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
@@ -20,11 +21,11 @@
         .search-box{width: 100%;padding: 0 0.18rem 0;box-sizing: border-box;height: 0.3rem;margin-top: 0.11rem}
         .search-box .logo{display: block;float: left;height: 0.3rem}
         .search-wrap{float: right;position: relative;width: 2.1rem;height: 0.3rem;}
-        .search-wrap input{border:1px solid rgba(221,221,221,1); display: inherit;width: 100%;height: 100%; box-shadow:0 0 10px 0 rgba(230,242,255,1);  border-radius:0.15rem;padding: 0.02rem 0.1rem;box-sizing: border-box}
+        .search-wrap input{border:1px solid rgba(221,221,221,1); display: inherit;width: 100%;height: 100%; box-shadow:0 0 5px 0 rgba(230,242,255,1);  border-radius:0.15rem;padding: 0.02rem 0.1rem;box-sizing: border-box}
         .search-wrap img{position: absolute;width: 0.2rem;height: 0.2rem;right: 0.1rem;top: 0.05rem}
         .banner{width: 3.4rem;height: 1.6rem;border-radius:0.08rem;overflow: hidden;margin: 0.11rem auto 0}
         .banner img{width: 100%;height: 100%;}
-        .menu-list{width: 100%;padding: 0.16rem 0.18rem 0 ;}
+        .menu-list{width: 100%;padding: 0.25rem 0.18rem 0 ;}
         .menu-list ul{width: 100%;font-size: initial;}
         .menu-list li{width: 25%;text-align: center;float: left}
         .menu-list li img{width: 0.44rem;height: 0.44rem;margin-bottom: 0.08rem}
@@ -32,7 +33,14 @@
         .block-title {padding: 0.3rem 0.18rem 0.25rem;font-size: inherit;}
         .block-title span{font-size: 0.16rem;font-weight: 400;color: #000000;line-height: 0.22rem;float: left}
         .block-title a{line-height: 0.22rem;float: right;font-size: 0.12rem;color: #3C85FF}
-
+        .block-title img{display: inline-block;width: 0.05rem;height: 0.09rem;margin-left: 0.05rem}
+        .swiper-container {
+            width: 3.4rem;height: 1.6rem;border-radius:0.08rem;overflow: hidden;margin: 0.11rem auto 0
+        }
+        .swiper-container img{width: 100%;height: 100%;display: block}
+        .swiper-pagination-bullet{background: #666;opacity: 1}
+        .swiper-pagination-bullet-active{background: #fff}
+        .swiper-pagination-bullets{bottom: 0!important;}
     </style>
 </head>
 <body>
@@ -43,7 +51,16 @@
             <img src="img/icon_search@2x.png">
         </div>
     </div>
-    <div class="banner"><img src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/banner1.png"/> </div>
+            <div class="swiper-slide"><img src="img/banner2.png"/> </div>
+            <div class="swiper-slide"><img src="img/banner3.png"/> </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!--<div class="banner"><img src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"></div>-->
     <div class="menu-list">
         <ul class="clearfix">
             <li>
@@ -66,7 +83,7 @@
     </div>
     <p class="block-title clearfix">
         <span>课程推荐</span>
-        <a href="courseList.html">更多></a>
+        <a href="courseList.html">更多<img src="img/icon_more@2x.png"/></a>
     </p>
     <div class="course-list">
         <a href="courseDetail.html" class="course-item">
@@ -118,5 +135,18 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.weui.js"></script>
+<script src="js/swiper.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    $(function () {
+        var mySwiper = new Swiper ('.swiper-container', {
+            autoplay:true, // 垂直切换选项
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    })
+</script>
 </html>

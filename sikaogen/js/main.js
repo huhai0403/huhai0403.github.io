@@ -18,4 +18,5 @@ $(function () {
         $(this).addClass('active');
     });
 
+    $('video').bind('contextmenu',function() { return false; });
 });

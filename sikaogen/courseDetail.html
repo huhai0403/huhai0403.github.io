@@ -11,34 +11,34 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
         window.addEventListener('resize', pxToRem)
     </script>
     <style>
-        .cover-box{width: 100%;}
+        .cover-box{width: 100%;height: 200px}
         .cover-box .cover{display: block;width: 100%}
-        .cover-box .video{display: none;width: 100%;}
+        .cover-box .video{width: 100%;height: 100%}
         .course-watcher{color: #bbb;font-size: 0.1rem;line-height: 0.12rem;padding-left: 0.2rem}
-        .course-watcher img{height: 0.12rem;margin-right: 0.1rem;vertical-align: bottom}
+        .course-watcher img{height: 0.09rem;margin-right: 0.1rem;vertical-align: baseline}
         .course-title{font-size:0.16rem;font-weight:400;color:rgba(0,0,0,1);line-height:0.28rem;width: 100%;padding: 0.1rem 0.2rem}
         .course-time{font-size:0.13rem;font-weight:400; color:rgba(102,102,102,1); line-height:0.22rem;padding-left: 0.2rem;margin-top: 0.16rem}
-        .mid-line{width: 100%;height: 0.05rem;background: rgba(245,245,245,1);margin-top: 0.3rem}
+        .mid-line{width: 100%;height: 0.05rem;background: rgba(245,245,245,1);margin-top: 0.15rem}
         .tab-box{height: 0.48rem;width: 100%;text-align: center;border-bottom: 1px solid #dddddd}
         .tab-box p{float: left;width: 50%;font-size: 0.14rem;color: #666666;line-height: 0.48rem;position: relative}
-        .tab-box p span{width: 0.4rem;height: 0.02rem;position: absolute;bottom: 0.02rem;left: 50%;margin-left: -0.2rem;background: #1F48E1;display: none}
+        .tab-box p span{width: 0.4rem;height: 0.02rem;position: absolute;bottom: 0;left: 50%;margin-left: -0.2rem;background: #1F48E1;display: none}
         .tab-box p.active{color: #1F48E1}
         .tab-box p.active span{display: block}
-        .course-menu-item{margin: 0 0.18rem;padding: 0.18rem 0;border-bottom:1px solid #DDD }
+        .course-menu-item{margin: 0 0.18rem;padding: 0.18rem 0;border-bottom:1px solid #eeeeee }
         .course-menu-item .try{float: left;width: 0.44rem;height: 0.18rem;line-height: 0.16rem;margin-right: 0.1rem;border: 1px solid #1F48E1;border-radius: 0.09rem;font-size: 0.1rem;color: #1F48E1;text-align: center}
         .course-menu-item .name{float: left;line-height: 0.18rem;font-size: 0.15rem;color: #333;max-width: 2.45rem}
         .course-menu-item .time{font-size: 0.11rem;line-height: 0.18rem;float: right;color: #999}
         .course-detail{width: 100%;padding: 0.18rem 0.2rem;color: #333;line-height: 0.22rem;font-size: 0.13rem;display: none}
         .pay-box{padding: 0.11rem 0.26rem;width:100%;height: 0.52rem;position: fixed;bottom: 0; left:0;border-top: 1px solid #DDD;z-index: 99;background: #fff}
-        .pay-box .collect{float: left}
-        .pay-box .collect img{display: none;width: 0.2rem;height: 0.18rem}
+        .pay-box .collect{float: left;margin-top: -0.05rem}
+        .pay-box .collect img{display: none;width: 0.25rem;}
         .pay-box .collect img:first-child{display: block}
         .pay-box .collect.active img:nth-child(2){display: block}
         .pay-box .collect.active img:first-child{display: none}
@@ -46,14 +46,17 @@
         .pay-box .collect.active p{color: #FF5A3A}
         .pay-box .collect p{color: #666;font-size:0.12rem;}
         .pay-box .pay-btn{float: right;width: 2.8rem;height: 0.3rem;text-align: center;background:rgba(255,90,58,1);
-            box-shadow:0 6px 12px 0 rgba(255,198,190,1);border-radius:0.15rem;color: #fff;font-size: 0.1rem;line-height: 0.3rem}
+            box-shadow:0 4px 6px 0 rgba(255,198,190,1);border-radius:0.15rem;color: #fff;font-size: 0.1rem;line-height: 0.3rem}
         .pay-box .pay-btn span{font-size: 0.15rem;}
+        .course-menu .active .name{color: #1F48E1;}
+        .course-menu .active .time{color: #1F48E1;}
+        .course-menu .active .try{background: #1F48E1;color: #fff}
     </style>
 </head>
 <body class="courseDetail">
     <div class="cover-box">
-        <img class="cover" src="http://download.xiushewang.com/FnUmRiIZcLEyikIDAYGxmA_rWWAb">
-        <video class="video" controls="controls" src="http://www.w3school.com.cn/i/movie.ogg"></video>
+        <!--<img class="cover" src="http://download.xiushewang.com/FnUmRiIZcLEyikIDAYGxmA_rWWAb">-->
+        <video class="video" id="video" controls="controls" ></video>
     </div>
     <p class="course-title">液货船货物操作模拟器课程（油船、化学品船、液化气船）</p>
     <p class="course-watcher"><img src="img/icon_number@2x.png">1231</p>
@@ -70,7 +73,7 @@
         </p>
     </div>
     <div class="course-menu">
-        <div class="course-menu-item clearfix">
+        <div class="course-menu-item active clearfix">
             <p class="try">试看</p>
             <p class="name">远洋船长航海纪实</p>
             <p class="time">25:21</p>
@@ -114,8 +117,15 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.weui.js"></script>
 <script src="js/main.js"></script>
+<script src="js/qplayer-web-player.js"></script>
 <script>
     $(function () {
+        const player = new QPlayer({
+            url: "http://pqq6aznn4.bkt.clouddn.com/o_1dadopchoohg1dmub2m45urgcg.mp4",
+            container: document.getElementById("video"),
+            loggerLevel:0
+        });
+
         $('.tab-box p').click(function () {
             $(this).siblings().removeClass('active');
             $(this).addClass('active');

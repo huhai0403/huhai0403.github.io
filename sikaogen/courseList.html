@@ -11,7 +11,7 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
@@ -28,7 +28,7 @@
         .top-nav li span{position: absolute;display: none;width: 100%;height: 0.02rem;background:#1F48E1;bottom: 0;left: 0;}
         .mid-nav{width: 100%;padding: 0 0.18rem;margin-top: 0.18rem}
         .mid-nav ul{display: block;height: 0.44rem;font-size: 0.13rem;white-space: nowrap;overflow-x: scroll;overflow-y: hidden}
-        .mid-nav li{position: relative;font-size: 0.13rem;color: #666666;display: inline-block;height: 0.25rem;line-height: 0.23rem;padding: 0 0.12rem;border: 1px solid #999;border-radius: 0.12rem;box-sizing: border-box;margin: 0 0.1rem}
+        .mid-nav li{position: relative;font-size: 0.13rem;color: #999;display: inline-block;height: 0.25rem;line-height: 0.23rem;padding: 0 0.12rem;border: 1px solid #D5D5D5;border-radius: 0.12rem;box-sizing: border-box;margin: 0 0.1rem}
         .mid-nav li.active{border: 1px solid #3063E5;background: #3063E5;color: #fff}
     </style>
 </head>

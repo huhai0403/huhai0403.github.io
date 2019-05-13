@@ -11,7 +11,7 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
@@ -27,7 +27,7 @@
         .weui-cell__bd p{font-size: 0.14rem;color: #333;width: auto;margin-right: 0.16rem}
         .weui-input{font-size: 0.14rem}
         .tip{font-size: 0.12rem;color: #999;padding-left: 0.18rem;line-height: 0.36rem}
-        .sure{width: 3.5rem;height: 0.5rem;background: #fff;text-align: center;line-height: 0.5rem;color: #1F48E1;border-radius: 0.08rem;margin: 0.1rem auto;display: block;font-size: 0.15rem}
+        .sure,.logout{width: 3.5rem;height: 0.5rem;background: #fff;text-align: center;line-height: 0.5rem;color: #1F48E1;border-radius: 0.08rem;margin: 0.1rem auto 0.16rem;display: block;font-size: 0.15rem}
         .edit-name,.edit-phone{background:rgba(238,238,238,1); border-radius:12px;}
     </style>
 </head>
@@ -39,7 +39,7 @@
         </div>
         <div class="weui-cell__ft ">
             <input type="file" accept="image/*">
-            <img src="img/icon_HeadPortrait@2x.png">
+            <img style="border-radius: 50%" src="img/icon_HeadPortrait@2x.png">
         </div>
     </div>
 </div>
@@ -52,7 +52,7 @@
     </div>
 </div>
 <div class="weui-cells weui-cells_form">
-    <div class="weui-cell phone-box">
+    <div class="weui-cell">
         <div class="weui-cell__bd">
             <p>手机号</p>
         </div>
@@ -72,6 +72,7 @@
 
 <p class="tip">密码必须是6-18个英文字母、数字或符号（除空格）</p>
 <a class="sure" href="javascript:;">保存</a>
+<a class="logout" href="javascript:;" style="color: #333">退出登录</a>
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.weui.js"></script>

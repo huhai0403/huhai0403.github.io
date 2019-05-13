@@ -11,22 +11,27 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
         window.addEventListener('resize', pxToRem)
     </script>
     <style>
-        .search-wrap{width: 3rem;height: 0.3rem;margin: 0.1rem auto;position: relative}
-        .search-wrap input{border:1px solid rgba(221,221,221,1); display: inherit;width: 100%;height: 100%; box-shadow:0 0 10px 0 rgba(230,242,255,1);  border-radius:0.15rem;padding: 0.02rem 0.1rem;box-sizing: border-box}
-        .search-wrap img{position: absolute;width: 0.2rem;height: 0.2rem;right: 0.1rem;top: 0.05rem}
+        .search-wrap{width: 100%;height: 0.3rem;margin: 0.1rem auto 0.2rem;position: relative;padding: 0 0.63rem 0 0.18rem}
+        .search-wrap input{border:1px solid rgba(221,221,221,1); color: #000;font-size: 0.14rem;display: inherit;width: 100%;height: 100%; box-shadow:0 0 5px 0 rgba(230,242,255,1);  border-radius:0.15rem;padding: 0.02rem 0.1rem 0.02rem 0.3rem;box-sizing: border-box}
+        .search-wrap .search-icon{position: absolute;width: 0.2rem;height: 0.2rem;left: 0.28rem;top: 0.05rem}
+        .search-wrap a{font-size: 0.14rem;line-height: 0.3rem;color: #666;position: absolute;right: 0.2rem;top: 0}
+        ::-webkit-input-placeholder{ font-size: 0.14rem;color: #BBB}
+        .search-wrap .clear-icon{position: absolute;width: 0.13rem;height: 0.13rem;right: 0.75rem;top: 0.08rem}
     </style>
 </head>
 <body class="courseList loadMore">
     <div class="search-wrap">
         <input type="text">
-        <img src="img/icon_search@2x.png">
+        <img class="search-icon" src="img/icon_search@2x.png">
+        <img class="clear-icon" src="img/btn_search_delete@2x.png">
+        <a href="javascript:;">取消</a>
     </div>
     <div class="course-list">
         <div class="course-item">

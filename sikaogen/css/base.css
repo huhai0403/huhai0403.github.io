@@ -18,7 +18,7 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-
+    font-family: 'Microsoft YaHei',arial,sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -44,6 +44,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+input{-webkit-appearance: none;}
 .clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}.clearfix{*zoom:1}
 
 .fl{float: left}
@@ -55,6 +56,7 @@ table {
 .tab .weui-tabbar__item img:nth-child(2){display: none;position: relative;top: 1px;right: -2px}
 .tab .weui-tabbar__item.active img:first-child{display: none}
 .tab .weui-tabbar__item.active img:nth-child(2){display: inline-block}
+.tab .weui-tabbar__item.active .weui-tabbar__label{color: #1F48E1}
 /*课程列表*/
 .course-list{padding: 0 0.18rem 0.6rem;width: 100%;box-sizing: border-box}
 .course-item{display: block;width: 100%;position: relative;border-radius: 0.06rem;overflow: hidden;height: 0.85rem;margin-bottom: 0.24rem}
@@ -63,23 +65,41 @@ table {
 .course-info .name{font-size: 0.14rem;color: #000;line-height: 0.21rem;height: 0.42rem;overflow: hidden;text-overflow:ellipsis;  display: -webkit-box;  -webkit-line-clamp: 2;  -webkit-box-orient: vertical;margin-bottom: 0.03rem}
 .course-info .price{color:#FF5A3A ;font-size: 0.13rem;margin-bottom: 0.12rem}
 .course-info .num{color: #bbb;font-size: 0.1rem;line-height: 0.12rem;}
-.course-info .num img{height: 0.12rem;}
+.course-info .num img{height: 0.09rem;margin-right: 0.04rem}
 .course-item .free{position: absolute;top: -0.03rem;left:  -0.03rem;z-index: 3;width: 0.35rem;}
 .course-item .try{position: absolute;right: 0;bottom: 0.02rem;width: 0.6rem;height: 0.23rem;line-height: 0.23rem;background:linear-gradient(135deg,rgba(207,231,255,1),rgba(228,251,255,1));
     box-shadow:0 0 8px 0 rgba(214,238,255,1); border-radius:0.12rem;font-size: 0.11rem;color: #1F48E1;text-align: center}
-.sanjiao_right{
-    display: inline-block;
-    width:0;
-    height:0;
-    overflow:hidden;
-    font-size: 0;     /*是因为, 虽然宽高度为0, 但在IE6下会具有默认的 */
-    line-height: 0;  /* 字体大小和行高, 导致盒子呈现被撑开的长矩形 */
-    border-width:0.05rem;
-    border-style:solid dashed dashed dashed;/*IE6下, 设置余下三条边的border-style为dashed,即可达到透明的效果*/
-    border-color:transparent   transparent transparent #1F48E1;
-}
+/*.sanjiao_right{*/
+    /*display: inline-block;*/
+    /*width:0;*/
+    /*height:0;*/
+    /*overflow:hidden;*/
+    /*font-size: 0;     !*是因为, 虽然宽高度为0, 但在IE6下会具有默认的 *!*/
+    /*line-height: 0;  !* 字体大小和行高, 导致盒子呈现被撑开的长矩形 *!*/
+    /*border-width:0.05rem;*/
+    /*border-style:solid dashed dashed dashed;!*IE6下, 设置余下三条边的border-style为dashed,即可达到透明的效果*!*/
+    /*border-color:transparent   transparent transparent #1F48E1;*/
+/*}*/
+.sanjiao_right{background: url("../img/icon_triangle@2x.png")  center no-repeat;width: 0.08rem;height: 0.09rem;background-size: contain;display: inline-block;margin-right: 0.05rem}
 .weui-dialog__title{font-size: 0.15rem}
+/*视频禁止下载*/
+video::-internal-media-controls-download-button {
 
+    display:none;
+
+}
+
+video::-webkit-media-controls-enclosure {
+
+    overflow:hidden;
+
+}
+
+video::-webkit-media-controls-panel {
+
+    width: calc(100% + 50px);
+
+}
 
 
 

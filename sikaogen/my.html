@@ -11,7 +11,7 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
@@ -33,6 +33,7 @@
         .none-content img{width: 0.7rem}
         .none-content p{font-size: 0.12rem;color: #999;}
         .weui-dialog__hd{padding: 0}
+        .weui-cell_access .weui-cell__ft:after{width: 9px;height: 9px;border-color: #333}
     </style>
 </head>
 <body style="background: #F5F5F5">

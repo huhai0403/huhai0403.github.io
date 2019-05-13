@@ -11,7 +11,7 @@
         function pxToRem() {
             var html = document.documentElement;
             var windowWidth = html.clientWidth;
-            html.style.fontSize = windowWidth / 3.75 + 'px';
+            html.style.setProperty('font-size',  windowWidth / 3.75 +'px','important');
         }
 
         pxToRem();
@@ -21,14 +21,14 @@
         .course-list{margin-top: 0.16rem;padding: 0 0.12rem 0.6rem}
         .course-item{position: relative;background: #fff;padding: 0.16rem 0.08rem;height: 1.02rem;margin: 0 auto 0.12rem}
         .course-item .cover{width: 1rem;height: 0.7rem;top: 0.16rem;left: 0.08rem}
-        .course-item .delete-btn{height: 0.16rem;width: 0.13rem;background: url("img/btn_delete@2x.png") center no-repeat;background-size: cover;position: absolute;right: 0.1rem;bottom: 0.16rem}
+        .course-item .delete-btn{display: block;height: 0.16rem;width: 0.13rem;background: url("img/btn_delete@2x.png") center no-repeat;background-size: cover;position: absolute;right: 0.1rem;bottom: 0.16rem}
         .course-info{padding-left: 1.18rem}
 
     </style>
 </head>
 <body class="courseList loadMore" style="background: #F5F5F5">
     <div class="course-list">
-        <a href="courseDetail.html" class="course-item">
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -36,8 +36,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -45,8 +45,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -54,8 +54,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -63,8 +63,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -72,8 +72,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -81,8 +81,8 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
-        <a href="courseDetail.html" class="course-item">
+        </div>
+        <div class="course-item">
             <img class="cover" src="http://download.xiushewang.com/Fgd3ycF4Nl-HnAjJqNxpP-uKK7x_"/>
             <div class="course-info">
                 <p class="name">液货船货物操作模2321 csdwe 番茄味234废弃物456而为去玩儿去拟器课程</p>
@@ -90,7 +90,7 @@
                 <p class="num"><img src="img/icon_number@2x.png">1231</p>
             </div>
             <i class="delete-btn"></i>
-        </a>
+        </div>
 
     </div>
 
@@ -113,20 +113,24 @@
                     "                <p class=\"price\"></p>\n" +
                     "                <p class=\"num\"><img src=\"img/icon_number@2x.png\">1231</p>\n" +
                     "            </div>\n" +
-                    "            <a class=\"delete-btn\" href=\"javascript:;\"></a>\n" +
+                    "            <i class=\"delete-btn\"></i>\n" +
                     "        </div>");
                 loading = false;
             }, 500);   //模拟延迟
         });
+        $('.course-list').on('click','.course-item',function () {
+            window.location.href = 'courseDetail.html'
+        });
         /*删除*/
-        $('.course-list').on('click','.delete-btn',function () {
+        $('.course-list').on('click','.delete-btn',function (e) {
+            e.stopPropagation();
             var _this = $(this).parents('.course-item')
             $.confirm("确定需要删除这门课程嘛？", function() {
                 _this.remove()
             }, function() {
                 console.log('已取消')
             });
-        })
+        });
     })
 </script>
 </html>
